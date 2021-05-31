@@ -83,6 +83,7 @@
                     <input type="button" value="delete" onclick="deletefn('<?php echo $row['flat_no'] ?>','<?php echo $row['building_name'] ?>');">
                     <input type="button" value="create_invoice" onclick="create_invoicefn('<?php echo $row['flat_no'] ?>','<?php echo $row['building_name'] ?>');">
                     <input type="button" value="show_unpaid_invoice" onclick="show_unpaid_invoicefn('<?php echo $row['flat_no'] ?>','<?php echo $row['building_name'] ?>');">
+                    
 
                 </td>
               

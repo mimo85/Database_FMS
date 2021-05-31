@@ -10,6 +10,7 @@
           $building_name=$_POST['building_name'];
           $flat_no=$_POST['flat_no'];
           $client_type=$_POST['client_type'];
+        
          
          
 

@@ -10,7 +10,7 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>New Client Form</title>
+    <title>Add apartment Form</title>
 
     <!-- Icons font CSS-->
     <link href="assets\css\material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -27,42 +27,41 @@
 </head>
 
 <body>
-<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+    <?php  
+    $building_name="";
+      if(isset($_GET['b_name'])) 
+      $building_name=$_GET['b_name'];
+    ?>
+
+
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
                 <div class="card-heading">
-                    <h2 class="title">New Invoice Form</h2>
+                    <h2 class="title">New apartment Form</h2>
                 </div>
+                <div class="name">Building Name: <?php echo $building_name ?></div>
                 <div class="card-body">
-                    <form action="add_invoice.php" method="POST">
+                    <form  action="add_apartment.php" method="POST">
 
                     <div class="form-row">
-                            <div class="name">Invoice Id</div>
+                            <div class="name">Building Name</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="invoice_id">
+                                    <input class="input--style-5" type="text" name="building_name" value="<?php echo $building_name ?>" >
                                 </div>
                             </div>
                         </div>
                         
-                       
-          
                         <div class="form-row">
-                            <div class="name">Building Name</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="text" name="building_name">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="name">Flat NO</div>
+                            <div class="name">Flat No:</div>
                             <div class="value">
                                 <div class="input-group">
                                     <input class="input--style-5" type="text" name="flat_no">
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="form-row">
                             <div class="name">Rent</div>
                             <div class="value">
@@ -112,9 +111,7 @@
                                 </div>
                             </div>
                         </div>
-                     
-            
-                        
+
                         <div>
                             <button class="btn btn--radius-2 btn--red" type="submit">Save</button>
                         </div>
@@ -123,6 +120,7 @@
             </div>
         </div>
     </div>
+
     <!-- Jquery JS-->
     <script src="assets\js\jquery.min.js"></script>
     <!-- Vendor JS-->

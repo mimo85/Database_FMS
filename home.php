@@ -25,32 +25,26 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">CLIENT <span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Forms <span class="caret"></span></a>
         <ul class="dropdown-menu">
+         
+          <li><a href="building_form.php">Add New Building</a></li>
           <li><a href="client_form.php">Add Client</a></li>
+          <li><a href="manager_form.php">Add Manager</a></li>
+          <li><a href="invoice_form.php">Add New Invoice</a></li>
         </ul>
       </li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Building <span class="caret"></span></a>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tables <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="building_form.php"> Add New Building</a></li>
+          
           <li><a href="building_list.php">Building List </a></li>
+          <li><a href="invoice_list.php">Invoice List </a></li>
+          <li><a href="manager_list.php">Manager List </a></li>
          
         </ul>
       </li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">INVOICE <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="invoice_form.php"> Add New Invoice</a></li>
-          <li><a href="invoice_list.php">Invoice List </a></li>
-  
-        </ul>
-      </li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Manager <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="manager_form.php">Add Manager</a></li>
-          <li><a href="manager_list.php">Manager List </a></li>
-        </ul>
-      </li>
-    </ul>
+     
+      
     <ul class="nav navbar-nav navbar-right">
       <li><a href="logout.php"><span class="glyphicon glyphicon-user"></span> LOG-OUT</a></li>
     </ul>

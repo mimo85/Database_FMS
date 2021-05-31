@@ -29,6 +29,7 @@
                     <th>Billing Month</th>
                     <th>Issue Date</th>
                     <th>Due Date</th>
+                    <th>Rent</th>
                     <th>Water Bill</th>
                     <th>Electricity Bill</th>
                     <th>Gas Bill</th>
@@ -71,10 +72,12 @@
             ";
              $result=$conn->query($mysqlquery); 
               //reading the whole table
+              
               $table=$result->fetchAll();
                     // print_r($table);
                
                 $row=$table[count($table)-1];
+            
            ?>
           <tr>
             <td><?php echo $row['Invoice_no']?></td>
@@ -84,6 +87,7 @@
             <td><?php echo $row['Billing_Month']?></td>
             <td><?php echo $row['Issue_Date']?></td>
             <td><?php echo $row['Due_Date']?></td>
+            <td><?php echo $row['Rent']?></td>
             <td><?php echo $row['Water_Bill']?></td>
             <td><?php echo $row['Electricity_Bill']?></td>
             <td><?php echo $row['Gas_Bill']?></td>
@@ -94,7 +98,7 @@
             <td><?php echo $row['Total_Bill']?></td>
             <td><?php echo $row['Status']?></td>
        
-           <td>  <input type="button" value="show_unpaid_invoice" onclick="paidfn('<?php echo $row['Flat_No'] ?>','<?php echo $row['Building_Name'] ?>','<?php echo $row['Invoice_no'] ?>');">
+           <td>  <input type="button" value="PAID" onclick="paidfn('<?php echo $row['Flat_No'] ?>','<?php echo $row['Building_Name'] ?>','<?php echo $row['Invoice_no'] ?>');">
            </td>
       
          </tr>
@@ -122,10 +126,12 @@ function paidfn(del_c,del_b,del_a){
 
 </html>
    <?php
-          }
-     else {
-?>
-        <script>location.assign('login.php');</script>
-<?php        
-         }
-?>
+              
+             
+
+}
+else{
+    echo"<script>location.assign('login.php');</script>";
+}
+
+ ?>

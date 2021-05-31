@@ -1,13 +1,19 @@
-  <?php
+<?php
      session_start();
 
      if($_SESSION['isLoggedin']==true)
   {
+    $building_name="";  
+    if(isset($_GET['b_name'])) $building_name=$_GET['b_name'];
+
+
+
+
   ?>
   <!DOCTYPE html>
      <html lang="en">
        <head>
-           <title>Building List</title>
+           <title>Building apartment List</title>
              <meta charset="utf-8">
              <meta name="viewport" content="width=device-width, initial-scale=1">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -17,15 +23,20 @@
          </head>
   <body>  
         <div class="container">
-            <h2>BUILDING LIST</h2>
-            <p></p>            
+            <h2>BUILDING Apartment LIST</h2>
+            <p>Building Name: <?php echo $building_name ?></p>   
+            <input type="button"  value="Add New Apartment" onclick="add_apartmentfn('<?php echo $building_name?>')">         
         <table class="table table-hover">
           <thead>
               <tr>
-                  <th>Building Name</th>
-                  <th>No_of_flats</th>
-                  <th>Address</th>
-                  <th>Update/Delete</th>
+                  <th>Apartment No</th>
+                  <th>Rent</th>
+                  <th>Water Bill</th>
+                  <th>Gas Bill</th>
+                  <th>Electricity Bill</th>
+                  <th>Additional Bill</th>
+                  <th>Service Charge</th>
+                  
 
               </tr>
            </thead>
@@ -43,7 +54,9 @@
              <?php
                                   }
 
-                $mysqlquery="SELECT * FROM building ";
+                $mysqlquery="SELECT * FROM apartment
+                             WHERE Building_Name='$building_name' ";
+                             
                 $result=$conn->query($mysqlquery); //result object
                 //reading the whole table
                 $table=$result->fetchAll();
@@ -52,16 +65,14 @@
              $row=$table[$i];
            ?>
           <tr>
-             <td><input type="button" class="btn btn-link" value="<?php echo $row['Building_name']?>" onclick="show_listfn('<?php echo $row['Building_name']?>');"></td>
-            <td><?php echo $row['No_of_flats']?></td>
-            <td><?php echo $row['Address']?></td>
-       
-           <td>    <input type="button" value="Update" onclick="updatefn('<?php echo $row['Building_name']?> ');">
-           <input type="button"  value="Delete" onclick="deletefn('<?php echo $row['Building_name']?>');">
-           <input type="button"  value="Apartment details" onclick="apartment_detailsfn('<?php echo $row['Building_name']?>');">
-           <input type="button"  value="Building Residence details" onclick="show_listfn('<?php echo $row['Building_name']?>');">
-           </td>
-      
+            <td><?php echo $row['Flat_No']?></td>    
+            <td><?php echo $row['Rent']?></td>
+            <td><?php echo $row['Water_Bill']?></td>
+            <td><?php echo $row['Gas_Bill']?></td>    
+            <td><?php echo $row['Electricity_Bill']?></td>
+            <td><?php echo $row['Additional_Bill']?></td>
+            <td><?php echo $row['Service_Charge']?></td>
+           
          </tr>
          <?php
          
@@ -86,8 +97,8 @@
            location.assign("update_building.php?update_id="+up_b);
         }
 
-          function show_listfn(info_b){
-           location.assign("building_Client_list.php?b_name="+info_b);
+          function add_apartmentfn(info_b){
+           location.assign("add_apartment_form.php?b_name="+info_b);
 
         }
 

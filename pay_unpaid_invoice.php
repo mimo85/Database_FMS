@@ -31,7 +31,7 @@
            ";
             $conn->exec($mysqlquery);
             echo"<script>
-            window.alert('paid');
+            window.alert('Successfully paid');
             location.assign('building_list.php');
             
             </script>";
